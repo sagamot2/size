@@ -1,0 +1,64 @@
+body {
+  background-color: #111;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.container {
+  background-color: #222;
+  padding: 1rem;
+  border-radius: 10px;
+  max-width: 100%;
+}
+
+input[type="number"], button {
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.card {
+  background-color: #1a1a1a;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+}
+
+.card a {
+  display: block;
+  text-align: center;
+  background-color: #ffa500;
+  padding: 0.5rem;
+  border-radius: 5px;
+  color: #000;
+  text-decoration: none;
+}
+
+/* ✅ Responsive adjustments */
+@media screen and (max-width: 480px) {
+  .stats-box {
+    font-size: 0.9rem;
+    padding: 1rem;
+  }
+
+  .count {
+    font-size: 2.5rem;
+  }
+
+  .label {
+    font-size: 1rem;
+  }
+
+  h1, h2 {
+    font-size: 1.5rem;
+  }
+
+  .result {
+    font-size: 1rem;
+  }
+}
