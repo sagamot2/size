@@ -2,178 +2,81 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>คำนวณไซส์ถุงยาง</title>
-  <meta name="description" content="เว็บคำนวณขนาดน้องชาย พร้อมแนะนำถุงยางที่เหมาะกับคุณ คลิกเพื่อสั่งซื้อได้ทันที">
-  <meta name="keywords" content="ขนาดน้องชาย, ถุงยาง, วัดขนาด, เลือกไซส์, คอนดอม">
-  <meta name="robots" content="index, follow">
-  <style>
-    body {
-      background-color: #111;
-      color: #fff;
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 20px;
-    }
-
-    .stats-box {
-      background-color: #1e1e1e;
-      padding: 30px;
-      border-radius: 10px;
-      text-align: center;
-      box-shadow: 0 0 20px rgba(255, 165, 0, 0.2);
-      margin-bottom: 40px;
-    }
-
-    .count {
-      font-size: 64px;
-      font-weight: bold;
-      color: #FFA500;
-    }
-
-    .label {
-      font-size: 20px;
-      color: #ccc;
-    }
-
-    .container {
-      background-color: #222;
-      padding: 20px;
-      border-radius: 10px;
-    }
-
-    h1, h2 {
-      color: #ffa500;
-    }
-
-    input[type="number"], button {
-      padding: 10px;
-      margin: 10px 0;
-      width: 100%;
-      max-width: 300px;
-      border-radius: 5px;
-      border: none;
-    }
-
-    button {
-      background-color: #ffa500;
-      color: #000;
-      cursor: pointer;
-    }
-
-    .result {
-      margin-top: 20px;
-      font-size: 18px;
-    }
-
-    .buy {
-      display: inline-block;
-      margin-top: 10px;
-      background-color: #ff6600;
-      padding: 10px 20px;
-      border-radius: 5px;
-      color: #fff;
-      text-decoration: none;
-    }
-
-    section {
-      margin-top: 40px;
-    }
-
-    .card {
-      background-color: #1a1a1a;
-      padding: 15px;
-      margin: 15px 0;
-      border-radius: 8px;
-    }
-
-    .card a {
-      display: inline-block;
-      margin-top: 10px;
-      background-color: #ffa500;
-      padding: 10px;
-      border-radius: 5px;
-      color: #000;
-      text-decoration: none;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="container">
-    <h1>คำนวณไซส์ถุงยาง</h1>
-    <label>ความยาว (นิ้ว):</label>
-    <input type="number" id="length" step="0.01" />
-
-    <label>เส้นรอบวง (นิ้ว):</label>
-    <input type="number" id="girth" step="0.01" />
-    <button onclick="calculate()">คำนวณ</button>
-    <div class="result" id="result"></div>
-    <a id="buyLink" class="buy" href="#" style="display:none;" target="_blank">ซื้อถุงยางไซส์นี้เลยครับ</a>
-  </div>
-
-  <section id="how-to-measure">
-    <h2>🧭 วิธีวัดขนาดที่ถูกต้อง</h2>
-    <ul>
-      <li>ใช้สายวัดหรือไม้บรรทัด</li>
-      <li>วัดบริเวณรอบโคนในขณะอวัยวะมีการแข็งตัวเต็มที่</li>
-      <li>วัดหลายรอบเพื่อความแม่นยำ และบันทึกไว้ใช้งานได้ภายหลัง</li>
-    </ul>
-  </section>
-
-  <section id="product-recommendation">
-    <h2>🛒 สินค้าแนะนำสำหรับคุณ</h2>
-    <div class="card">
-      <p><strong>💧 เจลหล่อลื่นสูตรน้ำ</strong><br>เหมาะสำหรับผู้เริ่มต้น ใช้คู่ถุงยางได้</p>
-      <a href="https://s.shopee.co.th/qYnaUBLUa" target="_blank">ซื้อเลย</a>
-    </div>
-
-    <div class="card">
-      <p><strong>⚡ สเปรย์ชะลอการหลั่ง</strong><br>ช่วยให้อึดขึ้น ใช้ง่าย ไม่แสบร้อน</p>
-      <a href="https://s.shopee.co.th/1LV4BUkx2A" target="_blank">ซื้อเลย</a>
-    </div>
-
-    <div class="card">
-      <p><strong>🧼 เครื่องเล็มขนบริเวณจุดลับ</strong><br>เพื่อความสะอาดและการดูแลที่ดีขึ้น</p>
-      <a href="https://s.shopee.co.th/2LNbNUeY41" target="_blank">ซื้อเลย</a>
-    </div>
-  </section>
-
+  <meta name="description" content="เว็บคำนวณขนาดน้องชาย พร้อมแนะนำถุงยางที่เหมาะกับคุณ คลิกเพื่อสั่งซื้อได้ทันที" />
+  <meta name="keywords" content="ขนาดน้องชาย, ถุงยาง, วัดขนาด, เลือกไซส์, คอนดอม" />
+  <meta name="robots" content="index, follow" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X8GBD7D3H4"></script>
   <script>
-    function calculate() {
-      const length = parseFloat(document.getElementById('length').value);
-      const girth = parseFloat(document.getElementById('girth').value);
-      const resultDiv = document.getElementById('result');
-      const buyLink = document.getElementById('buyLink');
-
-      if (isNaN(length) || isNaN(girth) || length <= 0 || girth <= 0) {
-        resultDiv.textContent = 'กรุณากรอกข้อมูลให้ครบถ้วน';
-        buyLink.style.display = 'none';
-        return;
-      }
-
-      let size = '';
-      let link = '#';
-
-      if (girth < 4.5) {
-        size = 'ไซส์ S (49mm)';
-        link = 'https://s.shopee.co.th/1qRKeEVJ6C';
-      } else if (girth < 5.0) {
-        size = 'ไซส์ M (52mm)';
-        link = 'https://s.shopee.co.th/5VKd1B23mM';
-      } else if (girth < 5.5) {
-        size = 'ไซส์ L (54mm)';
-        link = 'https://s.shopee.co.th/5VKd1B23mM';
-      } else if (girth < 6.0) {
-        size = 'ไซส์ XL (56mm)';
-        link = 'https://s.shopee.co.th/5VKd1B23mM';
-      }
-
-      resultDiv.textContent = 'ขนาดที่แนะนำ: ' + size;
-      buyLink.href = link;
-      buyLink.style.display = 'inline-block';
-    }
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X8GBD7D3H4');
   </script>
 
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container glass">
+    <h1>คำนวณไซส์ถุงยาง</h1>
+    <label for="length"> ความยาว (นิ้ว):</label>
+    <input type="number" id="length" step="0.01" placeholder="กรอกความยาว..." />
+
+    <label for="girth"> เส้นรอบวง (นิ้ว):</label>
+    <input type="number" id="girth" step="0.01" placeholder="กรอกเส้นรอบวง..." />
+
+    <button id="calcBtn" onclick="calculate()"> คำนวณเลย</button>
+
+    <div class="result" id="result" aria-live="polite" aria-atomic="true"></div>
+
+    <a id="buyLink" class="buy" href="#" style="display:none;" target="_blank" rel="noopener noreferrer" aria-label="ซื้อถุงยางไซส์นี้เลย">🛒 ซื้อถุงยางไซส์นี้เลย</a>
+
+    <div class="share-buttons" id="shareButtons" style="display:none;">
+      <p>แชร์ผลลัพธ์ของคุณ:</p>
+      <button onclick="shareResult('facebook')" aria-label="แชร์ไปยัง Facebook">Facebook</button>
+      <button onclick="shareResult('twitter')" aria-label="แชร์ไปยัง Twitter">Twitter</button>
+      <button onclick="shareResult('line')" aria-label="แชร์ไปยัง LINE">LINE</button>
+    </div>
+  </div>
+
+  <section class="faq glass" aria-label="คำถามที่พบบ่อย">
+    <h2>❓ คำถาม (FAQ)</h2>
+    <dl>
+      <dt>ถ้าผลลัพธ์ไซส์ไม่ตรงใจ ควรทำอย่างไร?</dt>
+      <dd>แนะนำให้ลองวัดซ้ำในช่วงเวลาที่อวัยวะแข็งตัวเต็มที่ และวัดหลายรอบเพื่อความแม่นยำครับ</dd>
+      <dt>ไซส์ถุงยางมีผลกับความปลอดภัยไหม?</dt>
+      <dd>ไซส์ที่พอดีช่วยลดความเสี่ยงถุงยางแตกหรือหลุด ทำให้ปลอดภัยมากขึ้นครับ</dd>
+      <dt>ควรวัดความยาวหรือเส้นรอบวงอย่างไร?</dt>
+      <dd>วัดความยาวจากโคนถึงปลาย และวัดเส้นรอบวงที่โคนในขณะอวัยวะแข็งตัวครับ</dd>
+    </dl>
+  </section>
+
+  <section class="product-recommendation glass" aria-label="สินค้าแนะนำสำหรับคุณ">
+  <h2>🛒 สินค้าแนะนำสำหรับคุณ</h2>
+
+  <div class="card">
+    <p><strong>💧 เจลหล่อลื่นสูตรน้ำ</strong><br>เหมาะสำหรับผู้เริ่มต้น ใช้คู่ถุงยางได้</p>
+    <a href="https://s.shopee.co.th/qYnaUBLUa" target="_blank" rel="noopener noreferrer">ซื้อเลย</a>
+  </div>
+
+  <div class="card">
+    <p><strong>⚡ สเปรย์ชะลอการหลั่ง</strong><br>ช่วยให้อึดขึ้น ใช้ง่าย ไม่แสบร้อน</p>
+    <a href="https://s.shopee.co.th/1LV4BUkx2A" target="_blank" rel="noopener noreferrer">ซื้อเลย</a>
+  </div>
+
+  <div class="card">
+    <p><strong>🧼 เครื่องเล็มขนบริเวณจุดลับ</strong><br>เพื่อความสะอาดและการดูแลที่ดีขึ้น</p>
+    <a href="https://s.shopee.co.th/2LNbNUeY41" target="_blank" rel="noopener noreferrer">ซื้อเลย</a>
+  </div>
+</section>
+
+ 
+
+  <footer class="footer glass" role="contentinfo">
+    <p>อัปเดตล่าสุด: <time id="lastUpdated"></time></p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
