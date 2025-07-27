@@ -1,64 +1,224 @@
 body {
-  background-color: #111;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
   color: #fff;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
-  padding: 1rem;
+  padding: 2rem 1rem;
   box-sizing: border-box;
+  min-height: 100vh;
 }
 
-.container {
-  background-color: #222;
-  padding: 1rem;
-  border-radius: 10px;
-  max-width: 100%;
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1.5rem 2rem;
+  margin: 1rem auto;
+  max-width: 600px;
+}
+
+h1, h2 {
+  color: #ffd700;
+  text-align: center;
+  margin-top: 0;
 }
 
 input[type="number"], button {
-  padding: 0.75rem;
-  margin: 0.5rem 0;
   width: 100%;
-  box-sizing: border-box;
-  max-width: 100%;
-}
-
-.card {
-  background-color: #1a1a1a;
-  padding: 1rem;
-  margin: 1rem 0;
-  border-radius: 8px;
-}
-
-.card a {
+  max-width: 320px;
+  padding: 12px 16px;
+  margin: 10px auto;
   display: block;
-  text-align: center;
-  background-color: #ffa500;
-  padding: 0.5rem;
-  border-radius: 5px;
-  color: #000;
-  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  font-size: 1rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
+  transition: 0.3s ease;
+  user-select: none;
 }
 
-/* ✅ Responsive adjustments */
-@media screen and (max-width: 480px) {
-  .stats-box {
-    font-size: 0.9rem;
-    padding: 1rem;
-  }
+input[type="number"]:focus {
+  outline: none;
+  border-color: #ffa500;
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 12px rgba(255, 165, 0, 0.4);
+}
 
-  .count {
-    font-size: 2.5rem;
-  }
+button {
+  background-color: #ffb700;
+  color: #000;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
-  .label {
-    font-size: 1rem;
+button:hover, button:focus {
+  background-color: #ffc933;
+  outline: none;
+}
+
+.result {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  text-align: center;
+  min-height: 2em;
+}
+
+.buy {
+  display: inline-block;
+  margin-top: 15px;
+  background-color: #ff6600;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.buy:hover, .buy:focus {
+  background-color: #ff8533;
+  outline: none;
+}
+
+.stats-box {
+  max-width: 280px;
+  padding: 2rem;
+  text-align: center;
+  user-select: none;
+  color: #fff;
+}
+
+.count {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #ffb700;
+  letter-spacing: 0.05em;
+}
+
+.label {
+  font-size: 1rem;
+  opacity: 0.85;
+  margin-top: 0.5rem;
+}
+
+.share-buttons {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.share-buttons p {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.share-buttons button {
+  margin: 0 0.4rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background-color: #ffa500;
+  color: #000;
+  font-weight: 700;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.share-buttons button:hover, .share-buttons button:focus {
+  background-color: #ffb733;
+  outline: none;
+}
+.faq dl {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.faq dt {
+  font-weight: 700;
+  margin-top: 1rem;
+  cursor: pointer;
+  position: relative;
+  padding-right: 20px;
+}
+
+.faq dt::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-weight: 700;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.faq dt.active::after {
+  content: '-';
+}
+
+.faq dd {
+  max-width: 600px;
+  margin: 0.5rem 0 1rem 0;
+  display: none;
+  line-height: 1.5;
+}
+
+/* Reviews */
+.reviews {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+  color: #eee;
+}
+
+.reviews blockquote {
+  background: rgba(255,255,255,0.1);
+  border-left: 6px solid #ffb700;
+  padding: 1rem 1.5rem;
+  margin: 1rem 0;
+  border-radius: 10px;
+  font-style: italic;
+  color: #fff;
+}
+
+.reviews footer {
+  margin-top: 0.5rem;
+  font-weight: 700;
+  text-align: right;
+  color: #ffd700;
+}
+.footer {
+  max-width: 600px;
+  margin: 2rem auto 1rem auto;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #ccc;
+} 
+@media (max-width: 480px) {
+  body {
+    padding: 1rem 0.5rem;
   }
 
   h1, h2 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
-  .result {
-    font-size: 1rem;
+  input[type="number"], button {
+    max-width: 100%;
+  }
+
+  .stats-box, .faq dl, .reviews, .footer, .container {
+    max-width: 100%;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
